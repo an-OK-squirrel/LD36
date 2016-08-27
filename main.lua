@@ -9,9 +9,9 @@ end
 function love.draw()
     -- Scaling
     local minSize = math.min(love.graphics.getWidth(), love.graphics.getHeight())
+    love.graphics.translate(math.max(0, (love.graphics.getWidth() - minSize) / 2), math.max(0, (love.graphics.getHeight() - minSize) / 2))
     love.graphics.scale(minSize / const.width, minSize / const.height)
-    love.graphics.translate(math.max(0, (love.graphics.getWidth() - minSize) / 4), math.max(0, (love.graphics.getHeight() - minSize) / 4))
-    -- Normal graphics
+    -- Rest of graphics
     state:draw()
 end
 
