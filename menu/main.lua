@@ -1,4 +1,4 @@
-const = require 'const'
+local const = require 'const'
 
 local a = 6;
 local state = {}

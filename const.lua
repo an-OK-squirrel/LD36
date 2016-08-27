@@ -1,6 +1,8 @@
 const = {
-    width = 256,
-    height = 256,
+    width = 512,
+    height = 512,
+    tileSize = 32,
+    gridSize = 16
 }
 
 return const

@@ -4,6 +4,7 @@ States = class('States')
 
 function States:initialize(name)
     self.name = name;
+    self.images = {}
     self.game = require(name .. '/main') -- HACK: if I don't finish is not defined :(
     self:switchState(name)
 end

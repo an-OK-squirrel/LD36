@@ -1,9 +1,22 @@
-States = require 'state'
-const = require 'const'
+local States = require 'state'
+local const = require 'const'
+
 local state
+local images = {}
 
 function love.load()
     state = States('menu')
+    state.images = images
+end
+
+function loadImage(name)
+    images[name] = love.graphics.newImage('assets/'..name..'.png')
+end
+
+local imageNames = {'tile1', 'wall0', 'wall1', 'wall2', 'wall3', 'wall4', 'wall5', 'wall6', 'wall7'}
+
+for _, imageName in pairs(imageNames) do
+    loadImage(imageName)
 end
 
 function love.draw()
