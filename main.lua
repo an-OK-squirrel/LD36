@@ -1,9 +1,10 @@
-State = require 'state'
+States = require 'state'
+local state
 
 function love.load()
-    menu = State:new('menu')
+    state = States('menu')
 end
 
 function love.draw()
-    menu:draw()
+    state:draw()
 end
