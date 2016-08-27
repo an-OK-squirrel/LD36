@@ -1,3 +1,5 @@
+const = require 'const'
+
 local a = 6;
 local state = {}
 local manager
@@ -7,7 +9,7 @@ function state.setManager(p)
 end
 
 function state.draw()
-    love.graphics.rectangle('fill', 0, 0, 100, 100)
+    love.graphics.rectangle('fill', 0, 0, const.width, const.height)
 end
 
 function state.start()
