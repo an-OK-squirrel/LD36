@@ -7,6 +7,9 @@ function state.setManager(p)
 end
 
 function state.draw()
+    love.graphics.setColor(255, 0, 0, 128)
+    love.graphics.scale(2, 2)
+    print(love.graphics.getWidth())
     love.graphics.rectangle('fill', 0, 0, 100, 100)
 end
 
@@ -19,9 +22,7 @@ function state.finish()
 end
 
 function state.update()
-    if love.keyboard.isDown('space') then
-        manager:switchState('level')
-    end
+
 end
 
 return state
