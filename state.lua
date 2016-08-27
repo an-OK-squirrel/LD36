@@ -19,7 +19,7 @@ end
 function States:switchState(name)
     self.game.finish()
     self.game = require(name .. '/main')
-    self.game.switchState = self.switchState
+    self.game.setManager(self)
     self.game.start()
 end
 
