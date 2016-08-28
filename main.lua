@@ -5,6 +5,7 @@ local state
 local images = {}
 
 function love.load()
+    -- love.graphics.setDefaultFilter("nearest", "nearest")
     state = States('menu')
     state.images = images
 end
@@ -13,7 +14,7 @@ function loadImage(name)
     images[name] = love.graphics.newImage('assets/'..name..'.png')
 end
 
-local imageNames = {'tile1', 'wall0', 'wall1', 'wall2', 'wall3', 'wall4', 'wall5', 'wall6', 'wall7', 'test', 'mirror0', 'mirror1', 'mirror2', 'mirror3'}
+local imageNames = {'tile1', 'wall0', 'wall1', 'wall2', 'wall3', 'wall4', 'wall5', 'wall6', 'wall7', 'test', 'mirror0', 'mirror1', 'mirror2', 'mirror3', 'light0', 'light1'}
 
 for _, imageName in pairs(imageNames) do
     loadImage(imageName)

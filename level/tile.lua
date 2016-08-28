@@ -52,7 +52,7 @@ function tiles.Mirror:getBouncedLight(direction)
     if direction == self.meta then
         return {(direction + 1) % 4}
     elseif (direction + 1) % 4 == self.meta then
-        return {(direction + 2) % 4}
+        return {(direction + 3) % 4}
     end
     return {}
 end
