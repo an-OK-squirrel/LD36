@@ -24,4 +24,8 @@ function States:switchState(name)
     self.game.start()
 end
 
+function States:mouseClicked(x, y, button)
+    self.game.mouseClicked(x, y, button)
+end
+
 return States

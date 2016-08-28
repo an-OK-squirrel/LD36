@@ -26,4 +26,8 @@ function state.update()
     end
 end
 
+function state.mouseClicked(x, y, button)
+    
+end
+
 return state

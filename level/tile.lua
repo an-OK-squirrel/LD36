@@ -30,7 +30,7 @@ tiles.Floor = class('Floor', tiles.Tile)
 
 tiles.Wall = class('Wall', tiles.Tile)
 
-function tiles.Tile:isSolid()
+function tiles.Wall:isSolid()
     return true
 end
 
@@ -38,12 +38,34 @@ function tiles.Wall:getImage()
     return 'wall' .. self.meta
 end
 
+tiles.Mirror = class('Mirror', tiles.Tile)
+
+function tiles.Mirror.isSolid()
+    return true
+end
+
+function tiles.Mirror:getImage()
+    return 'mirror' .. self.meta
+end
+
+function tiles.Mirror:getBouncedLight(direction)
+    if direction == self.meta then
+        return {(direction + 1) % 4}
+    elseif (direction + 1) % 4 == self.meta then
+        return {(direction + 2) % 4}
+    end
+    return {}
+end
+
 function tiles.getTileFromNumber(n)
     if n == 0 then
         return tiles.Floor(0)
     elseif n < 17 then
         return tiles.Wall(n - 1)
+    elseif n < 25 then
+        return tiles.Mirror(n - 17)
     end
+    return 'test'
 end
 
 return tiles

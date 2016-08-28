@@ -16,7 +16,7 @@ function sprites.Sprite:initialize(x, y)
     self.moving = false
 end
 
-function sprites.Sprite:goTo(x, y, frames)
+function sprites.Sprite:moveTo(x, y, frames)
     self.framesMoving = frames
     self.framesDone = 0
     self.lastX = self.x
