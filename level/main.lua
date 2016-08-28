@@ -31,7 +31,7 @@ function state.draw()
     end
 
     for k,object in ipairs(objects) do
-        love.graphics.draw(images[object:getImage()])
+        love.graphics.draw(images[object:getImage()], object.x, object.y)
     end
 end
 
@@ -43,7 +43,8 @@ end
 function state.setLevel(n)
     level = map(levels[n], function(a) return map(a, tiles.getTileFromNumber) end)
     objects = {}
-    table.insert(objects, sprite.Sprite)
+    table.insert(objects, sprite.Sprite:new(0, 0))
+    objects[1]:goTo(50, 50, 60)
 end
 
 function state.finish()
@@ -51,7 +52,9 @@ function state.finish()
 end
 
 function state.update()
-
+    for k,object in ipairs(objects) do
+        object:move()
+    end
 end
 
 return state

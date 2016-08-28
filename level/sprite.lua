@@ -19,25 +19,27 @@ end
 function sprites.Sprite:goTo(x, y, frames)
     self.framesMoving = frames
     self.framesDone = 0
-    self.lastX = x
-    self.lastY = y
-    self.nextX = self.x
-    self.nextY = self.y
+    self.lastX = self.x
+    self.lastY = self.y
+    self.nextX = x
+    self.nextY = y
     self.moving = true
 end
 
-function sprites.Sprite.getImage()
+function sprites.Sprite:getImage()
     return 'test'
 end
 
-function sprites.Sprite.blocksLight()
+function sprites.Sprite:blocksLight()
     return true
 end
 
-function sprites.Sprite.move()
+function sprites.Sprite:move()
     if self.moving then
-        self.x = self.lastX + (self.newX - self.lastX) / (framesDone / framesMoving)
-        self.y = self.lastY + (self.newY - self.lastY) / (framesDone / framesMoving)
+        self.x = self.lastX + (self.nextX - self.lastX) * (self.framesDone / self.framesMoving)
+        self.y = self.lastY + (self.nextY - self.lastY) * (self.framesDone / self.framesMoving)
+        self.framesDone = self.framesDone + 1
+        self.moving = self.framesDone ~= self.framesMoving
     end
 end
 
